@@ -2,6 +2,6 @@ virtual/
 *.pyc
 __pycache__
 
-start.sh/
+start.sh
 migrations/
 config.py
