@@ -1,3 +1,53 @@
-h1{
-    color:red
+.pitch-form{
+    background-color: rgba(0,0,0,0.7);
+    padding: 5% 8%;
+    border-radius: 5px;
+    width: 80%;
+    margin:10% auto;
+    max-height: 100vh;
+}
+
+.ttl{
+    color: white;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+    padding: 5% 0;
+}
+.cont{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+}
+input,textarea,select{
+    padding: 2%;
+    border-radius: 5px;
+    border: 1px solid #3bc5c6;
+    outline: none;
+    background-color: transparent;
+    color: white;
+}
+
+option{
+    color: black;
+}
+button{
+    align-self: flex-start;
+    padding: 2% 7%;
+    background-color: transparent;
+    color: white;
+    border-radius: 5px;
+    margin-top: 2%;
+    border: 1px solid #3bc5c6;
+    transition: all 1s ease-in;
+
+}
+button:hover{
+    background-color: #3bc5c6;
+}
+label{
+    color: whitesmoke;
 }
