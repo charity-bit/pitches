@@ -24,7 +24,6 @@ class User(UserMixin,db.Model):
     password = db.Column(db.String(255),nullable = False) 
     pitches = db.relationship('Pitch',backref = 'user',lazy = 'dynamic')
    
-    
 
 
     def save_user(self):

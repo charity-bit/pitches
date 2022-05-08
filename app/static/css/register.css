@@ -1,0 +1,110 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap");
+
+.lg {
+  margin-left: 2%;
+  position: relative;
+}
+.logo {
+  font-family: "Dancing Script", cursive;
+  font-size: 3rem;
+  z-index: 1;
+  position: relative;
+}
+.logo::after {
+  content: "";
+  width: 14%;
+  position: absolute;
+  z-index: -1;
+  background-color: rgba(59, 197, 198, 0.5);
+  border: 2px;
+  height: 100%;
+  top: 0;
+  bottom: 0;
+  left: -1%;
+  right: 0;
+}
+
+.title-cont {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.title-cont p {
+  margin-top: -1%;
+  color: whitesmoke;
+  transition: color 1s ease-in;
+}
+.title-cont p a {
+  text-decoration: none;
+  font-style: italic;
+  color: #3bc5c6;
+  transition: color 1s ease-in;
+}
+
+.title-cont p a:hover {
+  color: white;
+}
+.register-form {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 5% 8%;
+  border-radius: 5px;
+  width: 70%;
+  margin: 5% auto;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 90%;
+  margin: 0 auto;
+  padding: 5% 0;
+}
+.input {
+  padding: 2%;
+  border-radius: 5px;
+  border: 1px solid #3bc5c6;
+  outline: none;
+  background-color: transparent;
+  color: #fff;
+}
+
+.cont {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.submit {
+  align-self: flex-start;
+  padding: 2% 7%;
+  background-color: transparent;
+  color: white;
+  border-radius: 5px;
+  margin-top: 2%;
+  border: 1px solid #3bc5c6;
+  transition: all 1s ease-in;
+}
+.submit:hover {
+  background-color: #3bc5c6;
+}
+label {
+  color: whitesmoke;
+}
+.ttl {
+  color: white;
+}
+.sub {
+  display: flex;
+  gap: 5%;
+  align-items: center;
+}
+.sub a {
+  text-decoration: none;
+  font-style: italic;
+  color: #fff;
+  transition: color 1s ease-in;
+}
+.sub a:hover {
+  color: #3bc5c6;
+}

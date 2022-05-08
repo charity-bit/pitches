@@ -3,7 +3,7 @@ from unicodedata import category
 from flask import render_template, request
 from flask_login import login_required,current_user
 from . import main
-from ..models import Post
+from ..models import Pitch
 
 @main.route('/')
 def index():
