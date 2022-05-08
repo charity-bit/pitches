@@ -50,3 +50,34 @@
 {% endblock %}
 
 
+
+
+
+<div class="username cont">
+  <label>username</label>
+
+  {{wtf.form_field(rform.username,class="input")}}
+</div>
+<div class="email cont">
+  <label>Email</label>
+
+  {{wtf.form_field(rform.email,class="input")}}
+</div>
+<div class="password cont">
+  <label>password</label>
+
+  {{wtf.form_field(rform.password,class="input")}}
+</div>
+<div class="cpassword cont">
+  <label>Confirm password</label>
+
+  {{wtf.form_field(rform.password_confirm,class="input")}}
+</div>
+
+<div class="cpassword sub">
+  <a href="#">forgot password?</a>
+
+  {{wtf.form_field(rform.submit,class="submit")}}
+
+  
+</div>

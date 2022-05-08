@@ -5,10 +5,11 @@ from wtforms.validators import DataRequired,Email,EqualTo
 from ..models import User
 
 class RegistrationForm(FlaskForm):
-    username = StringField('Enter your Username',validators=[DataRequired()])
-    email = StringField('Your Email Address',validators=[DataRequired(),Email()])
-    password = PasswordField('Enter Password',validators=[DataRequired(),EqualTo('password_confirm',message='Passwords do not match')])
-    password_confirm = PasswordField('Confirm Password',validators=[DataRequired()])
+    
+    username = StringField("username",validators=[DataRequired()])
+    email = StringField("email",validators=[DataRequired(),Email()])
+    password = PasswordField("password",validators=[DataRequired(),EqualTo('password_confirm',message='Passwords do not match')])
+    password_confirm = PasswordField("confirm password",validators=[DataRequired()])
     submit = SubmitField('Sign Up')
 
 
@@ -22,6 +23,6 @@ class RegistrationForm(FlaskForm):
 
 
 class LoginForm(FlaskForm):
-    email =  StringField('Your EmailAddress',validators=[DataRequired(),Email()])
-    password = PasswordField('Password',validators=[DataRequired()])
+    username =  StringField('',validators=[DataRequired()])
+    password = PasswordField('',validators=[DataRequired()])
     submit = SubmitField('Sign In')

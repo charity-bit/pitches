@@ -21,7 +21,7 @@ class User(UserMixin,db.Model):
     bio = db.Column(db.String(255))
     pic_path = db.Column(db.String(255))
     email = db.Column(db.String(255),nullable = False,unique = True)
-    password = db.Column(db.String(255),nullable = False) 
+    secure_password = db.Column(db.String(255),nullable = False) 
     pitches = db.relationship('Pitch',backref = 'user',lazy = 'dynamic')
    
 
@@ -40,10 +40,10 @@ class User(UserMixin,db.Model):
 
     @password.setter
     def password(self,password):
-        self.password = generate_password_hash(password)
+        self.secure_password = generate_password_hash(password)
 
     def verify_password(self,password):
-        return check_password_hash(self.password,password)
+        return check_password_hash(self.secure_password,password)
 
     def __repr__(self):
         return f'User: {self.username} {self.email}'

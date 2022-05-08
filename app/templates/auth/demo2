@@ -1,0 +1,17 @@
+<div class="username cont">
+            <label>username</label>
+          
+            {{wtf.form_field(lform.username,class="input")}}
+          </div>
+          <div class="email cont">
+            <label>Email</label>
+          
+            {{wtf.form_field(lform.password,class="input")}}
+          </div>
+          <div class="sub">
+            <a href="#">forgot password?</a>
+          
+            {{wtf.form_field(lform.submit,class="submit")}}
+          
+            
+          </div>
