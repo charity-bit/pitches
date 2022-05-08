@@ -4,4 +4,4 @@ __pycache__
 
 start.sh
 migrations/
-config.py
+
