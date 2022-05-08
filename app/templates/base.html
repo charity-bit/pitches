@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-{% block navbar %}
-  {% include 'navigation.html' %}
-{% endblock %}
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -19,13 +17,12 @@
 <body>
 
 {% block title %} {% endblock %} 
+
+
 {% block content %}
 {% endblock %}
 
 
-{% block scripts %}
-<script src="{{url_for('static', filename = './js/script.js')}}"></script>
 
-{% endblock %}
 </body>
 </html>
