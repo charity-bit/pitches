@@ -35,27 +35,27 @@
           {% endif %}
        </div>
      
-       <form class="details">
+       <form class="details" method="post">
          <div class="uname">
            <p class="ttl">Username:</p>
-           <input value={{user.username}} />
+           <input value={{user.username}} name="username"/>
          </div>
          <div class="email">
           <p class="ttl">Email:</p>
-          <input value={{user.email}} />
+          <input value={{user.email}} name="email" />
         </div>
         <div class="bio">
           <p class="ttl">Bio:</p>
           {% if user.bio %}
-          <input value={{user.bio}} />
+          <input value={{user.bio}} name="bio" />
           {% else %}
-            <input type="text" value="bio">
+            <input type="text" value="bio" name="bio">
           {% endif %}
         </div>
         {% if user == current_user %}
         <div class="update">
             <input type="submit" value="Save">
-            <a href="">
+            <a href="{{url_for('main.profile',uname = user.username)}}">
                 Cancel</a>
                 {% endif %}
 

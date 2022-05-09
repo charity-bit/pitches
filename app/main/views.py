@@ -50,6 +50,27 @@ def update_pic(uname):
 @login_required
 def edit_profile(uname):
     user = User.query.filter_by(username = uname).first()
+    if request.method == 'POST':
+        username = request.form.get('username')
+        email = request.form.get('email')
+        bio = request.form.get('bio')
+
+        usernamef = User.query.filter_by(username = username).first()
+        if usernamef and usernamef != user.username:
+            flash('user already exists')
+
+        emailf = User.query.filter_by(email = email).first()
+        if emailf and emailf != user.email:
+            flash('Email already exists')
+
+        user.email = email
+        user.username = username
+        user.bio = bio
+        
+        db.session.add(user)
+        db.session.commit()
+
+        return redirect(url_for('.profile',uname = user.username))
     return render_template('/profile/edit.html',user = user)
     
 
