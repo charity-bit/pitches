@@ -1,3 +1,4 @@
+from email.policy import default
 from . import db,login_manager
 from werkzeug.security import generate_password_hash,check_password_hash
 from flask_login import UserMixin
@@ -19,7 +20,7 @@ class User(UserMixin,db.Model):
     id = db.Column(db.Integer,primary_key = True)
     username = db.Column(db.String(255),nullable = False,unique = True)
     bio = db.Column(db.String(255))
-    pic_path = db.Column(db.String(255))
+    pic_path = db.Column(db.String(255),default='avtar.png')
     email = db.Column(db.String(255),nullable = False,unique = True)
     secure_password = db.Column(db.String(255),nullable = False) 
     pitches = db.relationship('Pitch',backref = 'user',lazy = 'dynamic')

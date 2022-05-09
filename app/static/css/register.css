@@ -114,3 +114,8 @@ label {
 .sub a:hover {
   color: #3bc5c6;
 }
+
+.forgot{
+  display: flex;
+ 
+}

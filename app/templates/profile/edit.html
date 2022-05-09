@@ -1,0 +1,73 @@
+{% extends 'base.html' %} {% block styles %}
+
+<link
+  rel="stylesheet"
+  href="{{url_for('static',filename = 'css/update.css')}}"
+/>
+{% endblock %}
+
+
+{% block content %}
+
+<div class="main">
+  <p class="prof">Edit</p>
+
+    <div class="profile">
+
+      <div class="img">
+        {% if user.pic_path %}
+        <img src={{user.pic_path}} alt="">
+        {% else %}
+        <img src="../../static/photos/pic.jpg" alt="">
+        {% endif%}
+
+        {% if user == current_user %}
+        <form class="pic_form"
+         action="{{url_for('main.update_pic',uname = user.username)}}" method="post" enctype="multipart/form-data">
+         <label for="photo">
+           Upload profile picture
+          <input type="file" id ="photo"
+          name="photo" class="form-control" required>
+         </label>
+          
+          <input type="submit">
+         </form>
+          {% endif %}
+       </div>
+     
+       <form class="details">
+         <div class="uname">
+           <p class="ttl">Username:</p>
+           <input value={{user.username}} />
+         </div>
+         <div class="email">
+          <p class="ttl">Email:</p>
+          <input value={{user.email}} />
+        </div>
+        <div class="bio">
+          <p class="ttl">Bio:</p>
+          {% if user.bio %}
+          <input value={{user.bio}} />
+          {% else %}
+            <input type="text" value="bio">
+          {% endif %}
+        </div>
+        {% if user == current_user %}
+        <div class="update">
+            <input type="submit" value="Save">
+            <a href="">
+                Cancel</a>
+                {% endif %}
+
+        </div>
+         
+        
+
+            </form>
+        </div>
+
+    
+
+</div>
+
+{% endblock %}

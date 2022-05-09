@@ -1,33 +1,26 @@
-{% extends 'base.html' %}
- {% import 'bootstrap/wtf.html' as wtf %} {% block
+{% extends 'base.html' %} {% import 'bootstrap/wtf.html' as wtf %} {% block
 styles %}
 
 <link
   rel="stylesheet"
   href="{{url_for('static',filename = 'css/register.css')}}"
 />
-{% endblock %} 
-
-{% block content %}
+{% endblock %} {% block content %}
 
 <div class="lg">
-    <p class="logo">pitch perfect</p>
+  <p class="logo">pitch perfect</p>
+</div>
+
+<div class="register-form">
+  <div class="title-cont">
+    <h1 class="ttl">CREATE ACCOUNT</h1>
+    <p>Don't have an account? <a href="#" class="in">Sign Up</a></p>
   </div>
-  
+
   <div class="register-form">
-    <div class="title-cont">
-      <h1 class="ttl">CREATE ACCOUNT</h1>
-      <p>Don't have an account? <a href="#" class="in">Sign Up</a></p>
-    </div>
-  
-       
-        <div class="register-form">
-            {{wtf.quick_form(lform)}}
-        </div>
-    
+    {{wtf.quick_form(lform)}}
+    <!-- <p>Forgot? Password<a href="#" class="in">Reset</a></p> -->
   </div>
-
-
-
+</div>
 
 {% endblock %}

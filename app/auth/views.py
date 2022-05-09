@@ -24,6 +24,7 @@ def register():
     if rform.validate_on_submit():
         user = User(username = rform.username.data,email= rform.email.data,password = rform.password.data)
         user.save_user()
+        login_user(user)
         print(user)
 
         return redirect(url_for('auth.login'))
