@@ -25,7 +25,7 @@
 
       <div class="img">
         {% if user.pic_path %}
-        <img src={{url_for('static',filename=user.pic_path)}}" alt="">
+        <img src="{{url_for('static',filename=user.pic_path)}}" alt="">
         {% else %}
         <img src="../../static/photos/pic.jpg" alt="">
         <p>no pic</p>

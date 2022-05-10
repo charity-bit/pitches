@@ -86,6 +86,7 @@ def update_pic(uname):
 @login_required
 def edit_profile(uname):
     user = User.query.filter_by(username = uname).first()
+    userf = current_user
     if request.method == 'POST':
         username = request.form.get('username')
         email = request.form.get('email')
@@ -93,17 +94,21 @@ def edit_profile(uname):
 
         usernamef = User.query.filter_by(username = username).first()
         emailf = User.query.filter_by(email = email).first()
-        if usernamef and usernamef != user.username:
-            usernamef = user.username
+        if usernamef and usernamef is not user.username:
+            
+            username =  user.username 
+            flash('that username is taken')
         
-        elif emailf and emailf != user.email:
-            usernamef = user.username
-        else:
-            user.email = email
-            user.username = username
-            user.bio = bio
-            db.session.add(user)
-            db.session.commit()
+        if emailf and emailf is not user.email:
+            email = user.email 
+            flash('that email is taken')
+            
+        
+        user.email = email
+        user.username = username
+        user.bio = bio
+        db.session.add(user)
+        db.session.commit()
 
         return redirect(url_for('.profile',uname = user.username))
     return render_template('/profile/edit.html',user = user)
