@@ -117,3 +117,71 @@ nav {
     background-color: #3bc5c6;
     
 }
+.hide{
+  display: none;
+}
+.show{
+  display: none;
+}
+
+@media screen and (max-width:700px) {
+
+  header{
+    flex-direction: column;
+    display: none;
+    width: 60%;
+    height: 100vh;
+    position:absolute;
+    background-color: black;
+    z-index: 1;
+    top:0;
+    justify-content: space-around;
+    transition: all 10s ease-in-out;
+  }
+
+
+  .show{
+    color: #3bc5c6;
+    background-color: transparent;
+    border:none;
+    font-size: 24px;
+    display: flex;
+    margin-top: 5%;
+    margin-left: 5%;
+  }
+
+  .add{
+    margin-left: -5%;
+   
+  }
+  .hide{
+     color: #3bc5c6;
+     background-color: transparent;
+     border:none;
+     font-size: 24px;
+     display: flex;
+     position: absolute;
+     top:10%;
+     right: 7%;
+  }
+
+  .add p a {
+    font-size: 3vw;
+  }
+  .add p a svg{
+    height: 20px;
+    width: 20px;
+  }
+
+  nav ul{
+    flex-direction: column;
+    
+  }
+  nav ul li a{
+    font-size: 2vw;
+  }
+  .login{
+    margin-top: -20%;
+  }
+  
+}

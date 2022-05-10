@@ -28,7 +28,7 @@ def register():
         login_user(user)
         print(user)
         
-        mail_message("Welcome to Pitch Perfect","email/welcome_user",user.email,user=user)
+        # mail_message("Welcome to Pitch Perfect","email/welcome_user",user.email,user=user)
         return redirect(url_for('auth.login'))
     
     return render_template('auth/register.html',rform = rform)

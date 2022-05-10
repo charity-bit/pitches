@@ -109,7 +109,7 @@ def update_pic(uname):
 @login_required
 def edit_profile(uname):
     user = User.query.filter_by(username = uname).first()
-    userf = current_user
+    
     if request.method == 'POST':
         username = request.form.get('username')
         email = request.form.get('email')
@@ -121,6 +121,7 @@ def edit_profile(uname):
             
             username =  user.username 
             flash('that username is taken')
+
         
         if emailf and emailf is not user.email:
             email = user.email 

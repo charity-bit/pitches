@@ -1,4 +1,6 @@
-{% extends 'base.html' %} {% block styles %}
+{% extends 'base.html' %}
+{% block styles %}
+
 
 <link
   rel="stylesheet"
@@ -11,7 +13,7 @@
 
 <div class="main">
   <p class="prof">Edit</p>
-    <div class="profile">
+      <div class="profile">
       <div class="img">
         {% if user.pic_path %}
         <img src="{{url_for('static',filename=user.pic_path)}}"alt="">
@@ -33,14 +35,20 @@
           {% endif %}
        </div>
      
-       <form class="details" method="post">
+            <form class="details" method="post">
          <div class="uname">
            <p class="ttl">Username:</p>
            <input value={{user.username}} name="username"/>
+           {%if error %}
+           <p style="color: red;">{{error}}</p>
+           {% endif %}
          </div>
          <div class="email">
           <p class="ttl">Email:</p>
           <input value={{user.email}} name="email" />
+          {%if error %}
+          <p style="color: red;">{{error}}</p>
+          {% endif %}
         </div>
         <div class="bio">
           <p class="ttl">Bio:</p>
