@@ -15,7 +15,8 @@ def index():
 @main.route('/pitches/pickup-lines')
 def pick():
     pick = Pitch.query.filter_by(category = 'Pick Up lines').all()
-    return 'pick up'
+
+    return render_template('pick.html',pick = pick)
 
 @main.route('/pitches/promotion')
 def promotion():
