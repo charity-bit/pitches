@@ -1,8 +1,8 @@
-
+from cmath import pi
 from flask import redirect, render_template, request, url_for,flash,abort
 from flask_login import login_required,current_user
 from . import main
-from ..models import Pitch,User
+from ..models import Pitch,User,Comment
 from .. import db,photos
 
 
@@ -21,15 +21,15 @@ def pick():
 @main.route('/pitches/promotion')
 def promotion():
     promotion = Pitch.query.filter_by(category = 'Promotion').all()
-    return 'product promotion'
+    return render_template('promotion.html',promotion = promotion)
 
 
 
 @main.route('/pitches/comedy')
 def comedy():
     comedy = Pitch.query.filter_by(category = 'Comedy').all()
-    interview = Pitch.query.filter_by(category = 'Interview').all()
-    return 'comedy'
+  
+    return render_template('comedy.html',comedy = comedy)
 
 
 @main.route('/pitches/product-pitch')
@@ -56,10 +56,21 @@ def post():
         pitch.save_pitch()
         return redirect(url_for('main.index'))
     return render_template('post.html')
-@main.route('/comment/<int:post_id>' , methods = ['GET','POST'])
+@main.route('/comment/<int:pitch_id>',methods = ['POST','GET'])
 @login_required
-def comment(post_id):
-    return 'comment'
+def comment(pitch_id):
+    comments = Comment.query.filter_by(pitch_id = pitch_id)
+    user_id = current_user._get_current_object().id
+    pitch = Pitch.query.get(pitch_id)
+    if request.method == 'POST':
+        comment = request.form.get('comment')
+        new_comment = Comment(comment = comment , pitch_id = pitch_id,user_id = user_id)
+        new_comment.save_comment()
+        return redirect(url_for('main.comment',pitch_id = pitch_id))
+
+    return render_template('comment.html',comments = comments,pitch = pitch)
+
+
 
 @main.route('/user/<uname>')
 @login_required
