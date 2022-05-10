@@ -1,7 +1,4 @@
 
-
-from crypt import methods
-from os import path
 from flask import redirect, render_template, request, url_for,flash,abort
 from flask_login import login_required,current_user
 from . import main
@@ -11,8 +8,40 @@ from .. import db,photos
 
 @main.route('/')
 def index():
-    pitches =  Pitch.query.all()
-    return render_template('index.html',pitches = pitches)
+  
+    all =  Pitch.query.all()
+    return render_template('index.html',all = all)
+
+@main.route('/pitches/pickup-lines')
+def pick():
+    pick = Pitch.query.filter_by(category = 'Pick Up lines').all()
+    return 'pick up'
+
+@main.route('/pitches/promotion')
+def promotion():
+    promotion = Pitch.query.filter_by(category = 'Promotion').all()
+    return 'product promotion'
+
+
+
+@main.route('/pitches/comedy')
+def comedy():
+    comedy = Pitch.query.filter_by(category = 'Comedy').all()
+    interview = Pitch.query.filter_by(category = 'Interview').all()
+    return 'comedy'
+
+
+@main.route('/pitches/product-pitch')
+def product_pitch():
+    product = Pitch.query.filter_by(category = 'Product Pitch').all()
+    return 'product pitch'
+
+@main.route('/pitches/interview')
+def interview():
+    interview = Pitch.query.filter_by(category = 'Interview').all()
+    return 'intervies'
+
+
 
 @main.route('/post-pitch',methods = ['GET','POST'])
 @login_required
@@ -26,22 +55,29 @@ def post():
         pitch.save_pitch()
         return redirect(url_for('main.index'))
     return render_template('post.html')
+@main.route('/comment/<int:post_id>' , methods = ['GET','POST'])
+@login_required
+def comment(post_id):
+    return 'comment'
 
 @main.route('/user/<uname>')
+@login_required
 def profile(uname):
     user = User.query.filter_by(username = uname).first()
+    user_id = current_user._get_current_object().id
+    pitches = Pitch.query.filter_by(user_id = user_id).all()
     if user is None:
         abort(404)
-    return render_template('profile/profile.html',user = user)
+    return render_template('profile/profile.html',user = user,pitches = pitches)
 
-@main.route('/user/<uname>/update/pic',methods = ['POST'])
+@main.route('/user/<uname>/edit/pic',methods = ['POST'])
 @login_required
 def update_pic(uname):
     user = User.query.filter_by(username = uname).first()
     if 'photo' in request.files:
         photo = photos.save(request.files['photo'])
-        f_path = f'photos/{photo}'
-        user.profile_pic_path = path
+        filename= f'photos/{photo}'
+        user.pic_path = filename
         db.session.commit()
 
     return redirect(url_for('main.profile',uname = uname))

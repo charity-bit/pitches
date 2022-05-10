@@ -1,9 +1,17 @@
 {% extends 'base.html' %}
-{% include 'navigation.html' %}
-{% block style%}
+{% import 'macros.html' as macros%}
+{% include 'navbar.html' %} {% block styles %}
 
-{% endblock %}
 
-{% block content%}
+<link
+  rel="stylesheet"
+  href="{{url_for('static',filename = 'css/index.css')}}"
+/>
+{% endblock %} {% block content %}
 
-{% endblock %}
+
+<div>
+  {{macros.displayPitches(all)}}
+</div>
+
+{% endblock%}

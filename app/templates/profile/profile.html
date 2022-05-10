@@ -1,8 +1,15 @@
-{% extends 'base.html' %} {% block styles %}
+{% extends 'base.html' %}
+{% import 'profilemacro.html' as macros %}
+
+ {% block styles %}
 
 <link
   rel="stylesheet"
   href="{{url_for('static',filename = 'css/profile.css')}}"
+/>
+<link
+  rel="stylesheet"
+  href="{{url_for('static',filename = 'css/profilemacro.css')}}"
 />
 {% endblock %}
 
@@ -16,9 +23,10 @@
 
       <div class="img">
         {% if user.pic_path %}
-        <img src={{user.pic_path}} alt="">
+        <img src={{url_for('static',filename=user.pic_path)}}" alt="">
         {% else %}
         <img src="../../static/photos/pic.jpg" alt="">
+        <p>no pic</p>
         {% endif%}
 
         {% if user == current_user %}
@@ -63,6 +71,8 @@
     </div>
 
     <div class="pitches">
+      <h1>My Pitches</h1>
+       {{macros.displayPitches(pitches)}}
 
     </div>
 

@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% include 'navbar.html' %}
 
 {% block styles %}
 
@@ -24,9 +25,11 @@
       <div class="author-div cont">
         <label for="category">Category</label>
          <select name="category" id="category">
-            <option value="pickup">Pick Up line</option>
+            <option value="pickup">Pick Up lines</option>
             <option value="promotion">Promotion</option>
             <option value="product">Product Pitch </option>
+            <option value="product">Comedy</option>
+            <option value="product">Interview</option>
          </select>
       </div>
       <div class="pitch-div cont">
