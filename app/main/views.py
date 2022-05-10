@@ -1,8 +1,7 @@
-from cmath import pi
 from flask import redirect, render_template, request, url_for,flash,abort
 from flask_login import login_required,current_user
 from . import main
-from ..models import Pitch,User,Comment
+from ..models import Pitch,User,Comment,UpVote
 from .. import db,photos
 
 
@@ -12,11 +11,15 @@ def index():
     all =  Pitch.query.all()
     return render_template('index.html',all = all)
 
+
+
 @main.route('/pitches/pickup-lines')
 def pick():
     pick = Pitch.query.filter_by(category = 'Pick Up lines').all()
 
     return render_template('pick.html',pick = pick)
+
+
 
 @main.route('/pitches/promotion')
 def promotion():
@@ -35,12 +38,14 @@ def comedy():
 @main.route('/pitches/product-pitch')
 def product_pitch():
     product = Pitch.query.filter_by(category = 'Product Pitch').all()
-    return 'product pitch'
+    return render_template('product.html',product = product)
+
+
 
 @main.route('/pitches/interview')
 def interview():
     interview = Pitch.query.filter_by(category = 'Interview').all()
-    return 'intervies'
+    return render_template('interview.html',interview = interview)
 
 
 
@@ -56,6 +61,8 @@ def post():
         pitch.save_pitch()
         return redirect(url_for('main.index'))
     return render_template('post.html')
+
+
 @main.route('/comment/<int:pitch_id>',methods = ['POST','GET'])
 @login_required
 def comment(pitch_id):
@@ -82,6 +89,8 @@ def profile(uname):
         abort(404)
     return render_template('profile/profile.html',user = user,pitches = pitches)
 
+
+
 @main.route('/user/<uname>/edit/pic',methods = ['POST'])
 @login_required
 def update_pic(uname):
@@ -93,6 +102,8 @@ def update_pic(uname):
         db.session.commit()
 
     return redirect(url_for('main.profile',uname = uname))
+
+
 
 @main.route('/user/<uname>/edit',methods=['GET','POST'])
 @login_required
@@ -124,6 +135,25 @@ def edit_profile(uname):
 
         return redirect(url_for('.profile',uname = user.username))
     return render_template('/profile/edit.html',user = user)
+
+
+@main.route('/like/<int:id>',methods = ['POST','GET'])
+@login_required
+def upvote(id):
+    pitches = UpVote.query.filter_by(pitch_id = id)
+    pitch = Pitch.query.filter_by(id = id)
+    user_id = current_user._get_current_object().id
+
+    for pitch in pitches:
+        if user_id == pitch.user_id:
+            flash("You are not allowed to vote twice")
+        new_vote = UpVote(pitch= pitch,upvote = 1)
+        new_vote.save_upvote()
+    return redirect(url_for('main.index'))
+           
+
+     
+
     
 
 

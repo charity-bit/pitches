@@ -11,12 +11,10 @@
 
 <div class="main">
   <p class="prof">Edit</p>
-
     <div class="profile">
-
       <div class="img">
         {% if user.pic_path %}
-        <img src={{user.pic_path}} alt="">
+        <img src="{{url_for('static',filename=user.pic_path)}}"alt="">
         {% else %}
         <img src="../../static/photos/pic.jpg" alt="">
         {% endif%}

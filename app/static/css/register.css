@@ -30,7 +30,6 @@
   align-items: center;
 }
 .title-cont p {
-  margin-top: -1%;
   color: whitesmoke;
   transition: color 1s ease-in;
 }

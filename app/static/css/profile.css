@@ -81,7 +81,7 @@ label {
 }
 .details {
   margin-left: -15%;
-  gap: 5px;
+  gap: 10px;
   display: flex;
   flex-direction: column;
 }
@@ -90,9 +90,10 @@ label {
 }
 
 .details a {
-  padding: 6% 10%;
+  padding: 5px 14px;
   align-self: flex-start;
   border-radius: 7px;
+  margin-top: 5%;
   border: 1px solid #3bc5c6;
   text-decoration: none;
   color: #fff;

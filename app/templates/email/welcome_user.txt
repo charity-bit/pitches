@@ -1,0 +1,2 @@
+Hello {{user.username}}.Thank you for signing up.
+Welcome to Pitch perfect. We make Your pitches perfect.

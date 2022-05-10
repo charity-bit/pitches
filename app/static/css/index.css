@@ -1,12 +1,11 @@
 .pitches{
     display: flex;
     width: 80%;
-    margin:0 auto;
+    margin:10% auto;
     padding: 2% 0;
     flex-wrap: wrap;
     gap: 20px;
 }
-
 .pitch{
     background-color: rgba(0,0,0,0.7);
     display: flex;
@@ -55,4 +54,7 @@
     font-size: .9vw;
     padding: 2% 5%;
     color: #3bc5c6;
+}
+.bottom a:nth-child(3) span{
+    color: whitesmoke;
 }

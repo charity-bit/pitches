@@ -9,7 +9,7 @@
     </div>
     <div class="content">{{pitch.content}}</div>
     <div class="bottom">
-      <a href="">
+      <a href="{{url_for('main.upvote',id = pitch.id)}}">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           aria-hidden="true"
@@ -46,7 +46,7 @@
         {{pitch.downvotes.count()}}</a
       >
 
-      <a href="{{url_for('main.comment',pitch_id=pitch.id)}}"">comment</a>
+      <a href="{{url_for('main.comment',pitch_id=pitch.id)}}">comments <span>{{pitch.comments.count()}}</span></a>
     </div>
   </div>
 
