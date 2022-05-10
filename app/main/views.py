@@ -92,19 +92,18 @@ def edit_profile(uname):
         bio = request.form.get('bio')
 
         usernamef = User.query.filter_by(username = username).first()
-        if usernamef and usernamef != user.username:
-            flash('user already exists')
-
         emailf = User.query.filter_by(email = email).first()
-        if emailf and emailf != user.email:
-            flash('Email already exists')
-
-        user.email = email
-        user.username = username
-        user.bio = bio
+        if usernamef and usernamef != user.username:
+            usernamef = user.username
         
-        db.session.add(user)
-        db.session.commit()
+        elif emailf and emailf != user.email:
+            usernamef = user.username
+        else:
+            user.email = email
+            user.username = username
+            user.bio = bio
+            db.session.add(user)
+            db.session.commit()
 
         return redirect(url_for('.profile',uname = user.username))
     return render_template('/profile/edit.html',user = user)
