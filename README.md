@@ -42,7 +42,7 @@
 <li>python3 -m venv virtual - to install virtual enviroment.</li>
 <li>Source virtual/bin/activate - to install flask.</li>
 <li>pip list to show all needed packages are installed inside the virtual environment.</li>
-<li>Head over to newsAPI documentation to get an API key and you are good to go.</li>
+
 </ul>
 </code>
 
