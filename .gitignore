@@ -3,5 +3,3 @@ virtual/
 __pycache__
 
 start.sh
-migrations/
-
