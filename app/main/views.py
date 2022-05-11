@@ -147,17 +147,13 @@ def edit_profile(uname):
 @main.route('/like/<int:id>',methods = ['POST','GET'])
 @login_required
 def upvote(id):
+    pitch = Pitch.query.get(id)
+    new_vote = UpVote(pitch = pitch,upvote = 1)
+    new_vote.save_upvote()
+    return redirect(url_for('main.index'))
+           
     
-    pitches = UpVote.query.filter_by(pitch_id=id).all()
-    user_id = current_user._get_current_object().id
-
-    for pitch in pitches:
-        if user_id in pitch.user_id:
-            return redirect(url_for('main.index',id=id))
-        
-        new_vote = UpVote(pitch = pitch,upvote = 1)
-        new_vote.save_upvote()
-    return redirect(url_for('main.index',id=id))
+    
 
 @main.route('/dislike/<int:id>',methods = ['POST','GET'])
 @login_required
