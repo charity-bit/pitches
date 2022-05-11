@@ -9,43 +9,48 @@ from .. import db,photos
 def index():
   
     all =  Pitch.query.all()
-    return render_template('index.html',all = all)
+    rev = all[::-1]
+
+    return render_template('index.html',all = rev)
 
 
 
 @main.route('/pitches/pickup-lines')
 def pick():
     pick = Pitch.query.filter_by(category = 'Pick Up lines').all()
-
-    return render_template('pick.html',pick = pick)
+    rev = pick[::-1]
+    return render_template('pick.html',pick = rev)
 
 
 
 @main.route('/pitches/promotion')
 def promotion():
     promotion = Pitch.query.filter_by(category = 'Promotion').all()
-    return render_template('promotion.html',promotion = promotion)
+    rev = promotion[::-1]
+    return render_template('promotion.html',promotion = rev)
 
 
 
 @main.route('/pitches/comedy')
 def comedy():
     comedy = Pitch.query.filter_by(category = 'Comedy').all()
-  
-    return render_template('comedy.html',comedy = comedy)
+    rev = comedy[::-1]
+    return render_template('comedy.html',comedy = rev)
 
 
 @main.route('/pitches/product-pitch')
 def product_pitch():
     product = Pitch.query.filter_by(category = 'Product Pitch').all()
-    return render_template('product.html',product = product)
+    rev = product[::-1]
+    return render_template('product.html',product = rev)
 
 
 
 @main.route('/pitches/interview')
 def interview():
     interview = Pitch.query.filter_by(category = 'Interview').all()
-    return render_template('interview.html',interview = interview)
+    rev = interview[::-1]
+    return render_template('interview.html',interview = rev)
 
 
 
@@ -85,9 +90,10 @@ def profile(uname):
     user = User.query.filter_by(username = uname).first()
     user_id = current_user._get_current_object().id
     pitches = Pitch.query.filter_by(user_id = user_id).all()
+    rev = pitches[::-1]
     if user is None:
         abort(404)
-    return render_template('profile/profile.html',user = user,pitches = pitches)
+    return render_template('profile/profile.html',user = user,pitches = rev)
 
 
 
@@ -141,10 +147,17 @@ def edit_profile(uname):
 @main.route('/like/<int:id>',methods = ['POST','GET'])
 @login_required
 def upvote(id):
-    pitch = Pitch.query.get(id)
-    new_vote = UpVote(pitch = pitch,upvote = 1)
-    new_vote.save_upvote()
-    return redirect(url_for('main.index'))
+    
+    pitches = UpVote.query.filter_by(pitch_id=id).all()
+    user_id = current_user._get_current_object().id
+
+    for pitch in pitches:
+        if user_id in pitch.user_id:
+            return redirect(url_for('main.index',id=id))
+        
+        new_vote = UpVote(pitch = pitch,upvote = 1)
+        new_vote.save_upvote()
+    return redirect(url_for('main.index',id=id))
 
 @main.route('/dislike/<int:id>',methods = ['POST','GET'])
 @login_required
