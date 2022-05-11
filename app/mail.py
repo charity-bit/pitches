@@ -1,12 +1,19 @@
-from flask_mail import Message
-from flask import render_template
-from . import mail
-sender_email = 'charitynyanchera@gmail.com'
+# from smtplib import SMTP
+# from ..config import Config
 
+# sender = Config.MAIL_USERNAME
+# password = Config.MAIL_PASSWORD
+# domain = Config.EMAIL_SERVER
 
-
-def mail_message(subject,template,to,**kwargs):
-    email = Message(subject,sender=sender_email,recipients=[to])
-    email.body= render_template(template + ".txt",**kwargs)
-    email.html = render_template(template + ".html",**kwargs)
-    mail.send(email)
+# def send_message(username,email):
+#     receiver = email
+#     message = f'Welcome to Pitch perfect. We make Your pitches perfect.'
+#     subject = 'Welcome'
+#     with SMTP(domain) as conn:
+#         conn.starttls()
+#         conn.login(user=email, password=password)
+#         conn.sendmail(
+#             from_addr=email,
+#             to_addrs=receiver,
+#             msg=f"Subject:{subject}\n\n{message}"
+#         )

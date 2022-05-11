@@ -1,7 +1,7 @@
 from flask import redirect, render_template, request, url_for,flash,abort
 from flask_login import login_required,current_user
 from . import main
-from ..models import Pitch,User,Comment,UpVote
+from ..models import DownVote, Pitch,User,Comment,UpVote
 from .. import db,photos
 
 
@@ -141,16 +141,19 @@ def edit_profile(uname):
 @main.route('/like/<int:id>',methods = ['POST','GET'])
 @login_required
 def upvote(id):
-    pitches = UpVote.query.filter_by(pitch_id = id)
-    pitch = Pitch.query.filter_by(id = id)
-    user_id = current_user._get_current_object().id
-
-    for pitch in pitches:
-        if user_id == pitch.user_id:
-            flash("You are not allowed to vote twice")
-        new_vote = UpVote(pitch= pitch,upvote = 1)
-        new_vote.save_upvote()
+    pitch = Pitch.query.get(id)
+    new_vote = UpVote(pitch = pitch,upvote = 1)
+    new_vote.save_upvote()
     return redirect(url_for('main.index'))
+
+@main.route('/dislike/<int:id>',methods = ['POST','GET'])
+@login_required
+def downvote(id):
+    pitch = Pitch.query.get(id)
+    new_vote = DownVote(pitch = pitch,downvote = 1)
+    new_vote.save_downvote()
+    return redirect(url_for('main.index'))
+           
            
 
      

@@ -1,6 +1,7 @@
 from flask import flash, redirect, render_template, url_for,request
 from flask_login import current_user, login_required, login_user, logout_user
-from ..mail import mail_message
+
+
 from ..models import User
 from .. import db
 
@@ -28,7 +29,6 @@ def register():
         login_user(user)
         print(user)
         
-        # mail_message("Welcome to Pitch Perfect","email/welcome_user",user.email,user=user)
         return redirect(url_for('auth.login'))
     
     return render_template('auth/register.html',rform = rform)
