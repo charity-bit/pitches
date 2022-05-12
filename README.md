@@ -32,7 +32,7 @@
 
 <p>pitchPerfect  application that allows users to use that one minute wisely. The users will submit their one minute pitches and other users will vote on them and leave comments to give their feedback on them. </p>
 
-<p>See Live site <a href="#">here<a/> </p>
+<p>See Live site <a href="https://p-itchperfect.herokuapp.com/">here<a/> </p>
 
 ## Installation
 
@@ -42,7 +42,7 @@
 <li>python3 -m venv virtual - to install virtual enviroment.</li>
 <li>Source virtual/bin/activate - to install flask.</li>
 <li>pip list to show all needed packages are installed inside the virtual environment.</li>
-
+<li>Refer to requirements.txt to see required packages.</li>
 </ul>
 </code>
 
@@ -61,6 +61,9 @@ pip3
 </li>
 <li>
 PSQL 
+</li>
+<li>
+Javascript
 </li>
 </ul>
 
