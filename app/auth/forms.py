@@ -23,6 +23,6 @@ class RegistrationForm(FlaskForm):
 
 
 class LoginForm(FlaskForm):
-    username =  StringField('',validators=[DataRequired()])
-    password = PasswordField('',validators=[DataRequired()])
+    username =  StringField('Username',validators=[DataRequired()])
+    password = PasswordField('Password',validators=[DataRequired()])
     submit = SubmitField('Sign In')

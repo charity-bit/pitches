@@ -25,9 +25,10 @@
 
       <div class="img">
         {% if user.pic_path %}
-        <img src="{{url_for('static',filename=user.pic_path)}}" alt="">
+        <!-- <img src="{{url_for('static',filename=user.pic_path)}}" alt=""> -->
+        <img src="../../static/{{user.pic_path}}" alt="">
         {% else %}
-        <img src="{{url_for('static',filename='../images/img.png')}}" alt="">
+        <p>add photo and click submit</p>
        
         {% endif%}
 
