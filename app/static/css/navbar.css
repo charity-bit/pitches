@@ -9,7 +9,7 @@
   font-size: 2rem;
   z-index: 1;
   position: relative;
-  color: #3bc5c6;
+  color: #e8c020
 }
 .logo::after {
   content: "";
@@ -37,7 +37,7 @@ nav ul {
   list-style: none;
 }
 nav ul li a {
-  color: #3bc5c6;
+  color: #e8c020;
   text-decoration: none;
   font-size: 1vw;
   font-weight: 600;
@@ -52,7 +52,7 @@ nav ul li a:hover{
   display: flex;
   align-items: center;
   text-decoration: none;
-  color: #3bc5c6;
+  color: #e8c020;
   gap:7px;
   font-size: .8vw;
 }
@@ -82,7 +82,7 @@ nav {
   gap: 10px;
 }
 .signout {
-  border: 1px solid #3bc5c6;
+  border: 1px solid #e8c020;
   padding: 7px 20px;
   border-radius: 20px;
 }
@@ -97,24 +97,24 @@ nav {
 }
 
 .signin p {
-  border: 1px solid #3bc5c6;
+  border: 1px solid #e8c020;
   padding: 7px 20px;
   border-radius: 20px;
   transition: all 1s ease-in-out;
 }
 
 .signin p:nth-child(1) {
-  background-color: #3bc5c6;
+  background-color: #e8c020;
   
 }
 
 .signin p:nth-child(1):hover {
   background-color: transparent;
-  border: 1px solid #3bc5c6;
+  border: 1px solid #e8c020;
 }
 
 .signin p:nth-child(2):hover{
-    background-color: #3bc5c6;
+    background-color: #e8c020;
     
 }
 .hide{
@@ -141,7 +141,7 @@ nav {
 
 
   .show{
-    color: #3bc5c6;
+    color: #e8c020;
     background-color: transparent;
     border:none;
     font-size: 24px;
@@ -155,7 +155,7 @@ nav {
    
   }
   .hide{
-     color: #3bc5c6;
+     color: #e8c020;
      background-color: transparent;
      border:none;
      font-size: 24px;

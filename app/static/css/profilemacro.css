@@ -16,7 +16,7 @@
   padding: 3%;
 }
 .title h3 {
-  color: #3bc5c6;
+  color: #e8c020;
   font-size: 1.3vw;
 }
 .title p {
@@ -50,13 +50,13 @@
 }
 .bottom a:nth-child(1) svg,
 .bottom a:nth-child(2) svg {
-  color: #3bc5c6;
+  color: #e8c020;
   font-size: 1vw;
 }
 .bottom a:nth-child(3) {
   font-size: 0.9vw;
   padding: 2% 5%;
-  color: #3bc5c6;
+  color: #e8c020;
 }
 .bottom a:nth-child(3) span {
   color: whitesmoke;

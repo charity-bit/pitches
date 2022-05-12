@@ -10,19 +10,7 @@
   z-index: 1;
   position: relative;
 }
-.logo::after {
-  content: "";
-  width: 14%;
-  position: absolute;
-  z-index: -1;
-  background-color: rgba(59, 197, 198, 0.5);
-  border: 2px;
-  height: 100%;
-  top: 0;
-  bottom: 0;
-  left: -1%;
-  right: 0;
-}
+
 
 .title-cont {
   display: flex;
@@ -36,7 +24,7 @@
 .title-cont p a {
   text-decoration: none;
   font-style: italic;
-  color: #3bc5c6;
+  color: #e8c020;
   transition: color 1s ease-in;
 }
 
@@ -63,7 +51,7 @@ input[type = 'text'],input[type='password']{
   padding: 2%;
   border-radius: 5px;
   width: 80%;
-  border: 1px solid #3bc5c6;
+  border: 1px solid #e8c020;
   outline: none;
   background-color: transparent;
   color: #fff;
@@ -87,11 +75,11 @@ input[type = 'submit'] {
   color: white;
   border-radius: 5px;
   margin-top: 2%;
-  border: 1px solid #3bc5c6;
+  border: 1px solid #e8c020;
   transition: all 1s ease-in;
 }
 input[type = 'submit']  {
-  background-color: #3bc5c6;
+  background-color: #e8c020;
 }
 label {
   color: whitesmoke;
@@ -111,7 +99,7 @@ label {
   transition: color 1s ease-in;
 }
 .sub a:hover {
-  color: #3bc5c6;
+  color: #e8c020;
 }
 
 .forgot{

@@ -20,7 +20,7 @@
   display: inline;
   content: "";
   position: absolute;
-  background-color: #3bc5c6;
+  background-color: #e8c020;
   left: -2%;
   top: 50%;
   transform: translateY(-50%);
@@ -69,7 +69,7 @@ label {
 
 .pic_form input {
   padding: 4% 10%;
-  background-color: #3bc5c6;
+  background-color: #e8c020;
   align-self: flex-start;
   color: #fff;
   border: none;
@@ -82,7 +82,7 @@ label {
 }
 .img a {
   padding: 6% 5%;
-  background-color: #3bc5c6;
+  background-color: #e8c020;
 }
 .details {
   margin-left: -15%;
@@ -92,7 +92,7 @@ label {
   flex-direction: column;
 }
 .ttl {
-  color: #3bc5c6;
+  color: #e8c020;
 }
 .update {
   display: flex;
@@ -106,17 +106,17 @@ label {
   text-decoration: none;
   width: 80%;
   color: #fff;
-  background-color: #3bc5c6;
+  background-color: #e8c020;
 }
 .details a {
   padding: 6% 15%;
   border-radius: 7px;
-  border: 1px solid #3bc5c6;
+  border: 1px solid #e8c020;
   text-decoration: none;
   color: #fff;
 }
 .details a svg {
-  color: #3bc5c6;
+  color: #e8c020;
 }
 
 .email input,
@@ -129,7 +129,7 @@ label {
   border-right: none;
   border-left: none;
   outline: none;
-  border-bottom: 1px solid #3bc5c6;
+  border-bottom: 1px solid #e8c020;
 }
 
 @media screen and (max-width: 960px) {
