@@ -72,7 +72,13 @@
           {% for comment in comments %}
             <div class="comment-cont">
                   <p>{{comment.comment}}</p>
-                  <p>{{comment.pitch.user.username}}</p>
+                  {% for user in users%}
+                    {% if user.id == comment.user_id %}
+                  <p>By: {{user.username}}</p>
+                  {% endif %}
+                  {% endfor %}
+             
+
             </div>
             {% endfor %}
      </div>

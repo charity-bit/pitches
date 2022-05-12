@@ -21,8 +21,6 @@ class User(UserMixin,db.Model):
     secure_password = db.Column(db.String(255),nullable = False) 
     pitches = db.relationship('Pitch',backref = 'user',lazy = 'dynamic')
    
-
-
     def save_user(self):
         db.session.add(self)
         db.session.commit()

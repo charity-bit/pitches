@@ -72,6 +72,7 @@ def post():
 @login_required
 def comment(pitch_id):
     comments = Comment.query.filter_by(pitch_id = pitch_id)
+    users = User.query.all()
     user_id = current_user._get_current_object().id
     pitch = Pitch.query.get(pitch_id)
     if request.method == 'POST':
@@ -79,10 +80,8 @@ def comment(pitch_id):
         new_comment = Comment(comment = comment , pitch_id = pitch_id,user_id = user_id)
         new_comment.save_comment()
         return redirect(url_for('main.comment',pitch_id = pitch_id))
-
-    return render_template('comment.html',comments = comments,pitch = pitch)
-
-
+    
+    return render_template('comment.html',comments = comments,pitch = pitch,users = users)
 
 @main.route('/user/<uname>')
 @login_required
