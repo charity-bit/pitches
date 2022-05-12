@@ -17,8 +17,6 @@
 <br>
 <br>
 
-<h1>Mobie View </h1>
-<img src="./images/img1.png" alt="mobile">
 
 <br>
 
